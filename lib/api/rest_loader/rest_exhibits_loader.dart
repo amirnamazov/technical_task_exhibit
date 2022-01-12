@@ -10,9 +10,7 @@ class RestExhibitsLoader implements ExhibitsLoader {
 
   @override
   Future<List<Exhibit>> getExhibitList() async {
-    List<Exhibit> list = [];
     List<dynamic> response = await _restProvider.getRequest("/Reyst/exhibit_db/list");
-    response.forEach((v) => list.add(Exhibit.fromJson(v)));
-    return list;
+    return response.map((e) => Exhibit.fromJson(e)).toList();
   }
 }
