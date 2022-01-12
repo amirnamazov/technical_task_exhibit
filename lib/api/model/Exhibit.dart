@@ -1,9 +1,12 @@
 class Exhibit {
 
-  Exhibit({this.title, this.images});
+  Exhibit({
+    required this.title,
+    required this.images,
+  });
 
-  String? title;
-  List<String>? images;
+  final String title;
+  final List<String> images;
 
   factory Exhibit.fromJson(Map<String, dynamic> json) => Exhibit(
     title: json['title'],
